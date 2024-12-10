@@ -4,6 +4,10 @@ import torch
 from decord import cpu, VideoReader, bridge
 from transformers import AutoModelForCausalLM, AutoTokenizer
 import argparse
+import os
+torch.cuda.empty_cache()
+# os.environ["PYTORCH_CUDA_ALLOC_CONF"] = "max_split_size_mb:128"
+# torch.cuda.set_per_process_memory_fraction(0.8)  # Adjust the fraction as needed
 
 MODEL_PATH = "THUDM/cogvlm2-video-llama3-chat"
 
